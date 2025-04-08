@@ -1,160 +1,248 @@
-# Concept: Hash Maps, Single-pass traversal
+# Concept: Hash Maps & Single-pass Traversal in TypeScript
 
-## 🧠 Concept Class – Week 1: Two Sum (Hash Map Pattern)
+## 🎯 Learning Objectives
 
-### ✅ Objective
-
-Learn how to solve the **Two Sum** problem efficiently using:
-
-- A **Hash Map** (aka object or `Map`)
-- A **single-pass traversal** to achieve **O(n)** time complexity
-- A reusable problem-solving **pattern** for many interview challenges
+By the end of this lesson, you will:
+1. Master the Two Sum problem using TypeScript and Hash Maps
+2. Understand time/space complexity trade-offs
+3. Learn a reusable pattern for interview problems
+4. Practice with interactive examples and test cases
 
 ---
 
-### 📌 Problem Statement
+### 📝 Problem Statement
 
-> Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-> 
+```typescript
+type TwoSumFunction = (nums: number[], target: number) => [number, number];
 
-🧠 **Constraints**:
+/**
+ * Given an array of integers and a target sum, return indices of two numbers that add up to the target.
+ * @param nums Array of integers
+ * @param target Target sum to find
+ * @returns Tuple of two indices whose values sum to target
+ * @throws Error if no solution exists
+ */
+```
 
-- Exactly one valid solution.
-- You **may not** use the same element twice.
+#### Constraints:
+- Exactly one valid solution exists
+- Same element cannot be used twice
+- Input array length: 2 ≤ n ≤ 10⁴
+- Array elements range: -10⁹ ≤ nums[i] ≤ 10⁹
+- Target range: -10⁹ ≤ target ≤ 10⁹
 
-```jsx
+#### Example:
+```typescript
 Input:  nums = [2, 7, 11, 15], target = 9
-Output: [0, 1]  // nums[0] + nums[1] == 9
+Output: [0, 1]  // because nums[0] + nums[1] = 2 + 7 = 9
 ```
 
 ---
 
-### 🧩 Key Concepts
+### 🧮 Solution Approaches
 
-### 1. ❌ Brute Force – O(n²)
+#### 1. Brute Force Approach - O(n²)
 
-Compare each pair of elements using nested loops.
+```typescript
+const twoSumBrute: TwoSumFunction = (nums, target) => {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+    throw new Error("No solution exists");
+};
+```
 
-```jsx
-for (let i = 0; i < nums.length; i++) {
-  for (let j = i + 1; j < nums.length; j++) {
-    if (nums[i] + nums[j] === target) return [i, j];
-  }
+#### 2. Optimized Hash Map Approach - O(n)
+
+```typescript
+const twoSum: TwoSumFunction = (nums, target) => {
+    const seen = new Map<number, number>();
+    
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        
+        if (seen.has(complement)) {
+            return [seen.get(complement)!, i];
+        }
+        
+        seen.set(nums[i], i);
+    }
+    
+    throw new Error("No solution exists");
+};
+```
+
+### 🔍 Complexity Analysis
+
+| Approach | Time Complexity | Space Complexity | Pros | Cons |
+|----------|----------------|------------------|------|------|
+| Brute Force | O(n²) | O(1) | Simple to implement | Slow for large inputs |
+| Hash Map | O(n) | O(n) | Linear time | Uses extra space |
+
+---
+
+### 🧪 Test Cases
+
+```typescript
+interface TestCase {
+    nums: number[];
+    target: number;
+    expected: [number, number];
+    description: string;
+}
+
+const testCases: TestCase[] = [
+    {
+        nums: [2, 7, 11, 15],
+        target: 9,
+        expected: [0, 1],
+        description: "Basic case"
+    },
+    {
+        nums: [-1, -2, -3, -4],
+        target: -7,
+        expected: [2, 3],
+        description: "Negative numbers"
+    },
+    {
+        nums: [3, 3],
+        target: 6,
+        expected: [0, 1],
+        description: "Same numbers"
+    },
+    {
+        nums: [1, 5, 8, 3, 9, 2],
+        target: 7,
+        expected: [1, 5],
+        description: "Numbers in middle and end"
+    }
+];
+
+// Test runner
+function runTests(implementation: TwoSumFunction): void {
+    for (const { nums, target, expected, description } of testCases) {
+        try {
+            const result = implementation(nums, target);
+            const passed = result[0] === expected[0] && result[1] === expected[1];
+            console.log(`${description}: ${passed ? '✅' : '❌'}`);
+        } catch (error) {
+            console.error(`${description}: ❌ - ${error.message}`);
+        }
+    }
 }
 ```
 
-- ❗ Inefficient for large input
-- ❌ Not scalable — fails performance tests on platforms like LeetCode
+### 🎯 Common Patterns & Techniques
+
+1. **Complement Pattern**
+   ```typescript
+   complement = target - currentNumber
+   ```
+
+2. **Hash Map Lookup Pattern**
+   ```typescript
+   if (map.has(key)) {
+       // Found what we're looking for
+   } else {
+       map.set(key, value);
+   }
+   ```
+
+3. **Early Return Pattern**
+   ```typescript
+   if (condition) return result;
+   ```
+
+### 🚀 Performance Optimization Tips
+
+1. **Use Map over Object**
+   - `Map` has better performance for frequent additions/removals
+   - No prototype chain to worry about
+   - Direct key-value storage
+
+2. **Early Exit**
+   - Return as soon as solution is found
+   - Don't process unnecessary elements
+
+3. **Memory Management**
+   - Clear Map when done if reusing
+   - Don't store unnecessary data
+
+### 📚 Related Problems
+
+1. **Two Sum II - Input Array is Sorted**
+   - Use two pointers instead of hash map
+   - O(n) time, O(1) space
+
+2. **3Sum**
+   - Fix one number, use Two Sum for the rest
+   - O(n²) time complexity
+
+3. **Subarray Sum Equals K**
+   - Use running sum with hash map
+   - Track cumulative sums
+
+### 🎓 Interview Tips
+
+1. **Always Clarify:**
+   - Input constraints
+   - Expected output format
+   - Edge cases to handle
+   - Performance requirements
+
+2. **Solution Steps:**
+   1. Explain brute force first
+   2. Analyze its limitations
+   3. Propose optimized solution
+   4. Discuss trade-offs
+
+3. **Code Quality:**
+   - Use TypeScript types
+   - Add error handling
+   - Write clear comments
+   - Use descriptive variable names
+
+### 🔗 Resources
+
+1. **Official Documentation**
+   - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+   - [Map MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+2. **Practice Problems**
+   - [LeetCode Two Sum](https://leetcode.com/problems/two-sum/)
+   - [HackerRank Challenges](https://www.hackerrank.com/domains/algorithms)
+
+3. **Advanced Reading**
+   - [Hash Table Implementation](https://www.geeksforgeeks.org/implementation-of-hash-table-in-typescript/)
+   - [Algorithm Complexity](https://www.bigocheatsheet.com/)
+
+### ✅ Checklist
+
+Before submitting your solution, ensure:
+
+- [ ] Solution handles all edge cases
+- [ ] Types are properly defined
+- [ ] Error cases are handled
+- [ ] Code is properly formatted
+- [ ] Tests pass
+- [ ] Comments are clear and helpful
+- [ ] No unnecessary console.logs
+- [ ] Performance is optimized
 
 ---
 
-### 2. ✅ Optimized Approach – O(n) using Hash Map
+### 🎯 Practice Exercise
 
-```jsx
-const map = new Map();
-for (let i = 0; i < nums.length; i++) {
-  const diff = target - nums[i];
-  if (map.has(diff)) return [map.get(diff), i];
-  map.set(nums[i], i);
-}
-```
+Implement these variations:
+1. Two Sum with sorted input
+2. Two Sum with duplicates allowed
+3. Two Sum with negative numbers
+4. Count pairs that sum to target
 
-✅ Uses:
-
-- Single pass
-- Constant-time lookups with `Map`
-- No duplicate elements used
-
----
-
-### 🧠 Why Use a Hash Map?
-
-| Feature | Reason |
-| --- | --- |
-| O(1) average lookup time | Fast check for complement values |
-| Key → Index mapping | Allows instant return of correct index pair |
-| Space-for-speed tradeoff | Extra memory for much better performance |
-
----
-
-### 🚀 Step-by-Step Strategy (Pattern)
-
-| Step | Action |
-| --- | --- |
-| 1 | Initialize an empty Map |
-| 2 | Loop through the array |
-| 3 | Calculate `complement = target - currentNum` |
-| 4 | If `complement` is in the map → return indices |
-| 5 | Otherwise, add `currentNum → index` to map |
-
-> 💡 This is a core "Seen Elements" pattern – remember what you’ve seen as you iterate.
-> 
-
----
-
-### ⚠️ Common Pitfalls
-
-- ❌ **Using the same element twice** (e.g., don’t return the same index twice)
-- ❌ **Returning inside nested loops** in brute force
-- ❌ **Using `Object` instead of `Map`** (Object has key collisions from prototypes)
-
----
-
-### 🧪 Test Cases (Write These in Code!)
-
-| Case | Input | Target | Output |
-| --- | --- | --- | --- |
-| Basic | [2, 7, 11, 15] | 9 | [0, 1] |
-| Negatives | [3, -1, 4, 2] | 1 | [1, 3] |
-| Duplicates | [3, 3] | 6 | [0, 1] |
-| Large Input | [1, 2, …, 99999] | 199998 | [99997, 99998] |
-
----
-
-### 🔥 Interview Tip
-
-Always ask:
-
-- **Are values unique?**
-- **Can elements be negative?**
-- **What if there’s no solution?**
-- **Should you return values or indices?**
-
-> In real interviews, always start with brute force → then optimize. Show your thinking!
-> 
-
----
-
-### 📚 External Resources
-
-### ✅ Videos
-
-- [NeetCode – Two Sum Explained (YouTube)](https://www.youtube.com/watch?v=KLlXCFG5TnA)
-- [freeCodeCamp – Hash Maps in JavaScript](https://www.youtube.com/watch?v=F95z5Wxd9ks)
-
-### ✅ Articles & Practice
-
-- [LeetCode – Two Sum](https://leetcode.com/problems/two-sum/)
-- [JavaScript Map – MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
-- [Two Sum Patterns – GeeksforGeeks](https://www.geeksforgeeks.org/two-sum-problem/)
-
----
-
-### 🧩 Practice Variations (Same Pattern)
-
-- **Two Sum II – Input array is sorted**
-- **3Sum / 4Sum / kSum** problems
-- **Subarray Sum Equals K**
-- **Find Pair With Given Sum in BST**
-
----
-
-### ✅ Summary
-
-✔️ Mastering **Two Sum** means:
-
-- You’ve learned how to combine arrays, hash maps, and logic flow
-- You’ve unlocked a **key pattern** for many future interview questions
-- You can now solve many **target-sum + complement lookup problems** in O(n)
+Remember to use TypeScript and maintain good coding practices!
 
 ---
