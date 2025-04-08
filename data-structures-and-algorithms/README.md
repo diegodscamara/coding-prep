@@ -1,4 +1,35 @@
-# 🧠 Data Structures and Algorithms Plan – 12 Weeks
+# 🧠 Data Structures and Algorithms Study Plan
+
+## 📋 Table of Contents
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Learning Objectives](#learning-objectives)
+- [Study Structure](#study-structure)
+- [Weekly Curriculum](#weekly-curriculum)
+- [Additional Resources](#additional-resources)
+- [Progress Tracking](#progress-tracking)
+- [Interview Preparation Tips](#interview-preparation-tips)
+
+## 🎯 Overview
+A comprehensive 12-week study plan designed to master fundamental Data Structures and Algorithms using JavaScript. This curriculum follows a structured approach combining theory, practice, and spaced repetition for optimal learning.
+
+## 🚀 Prerequisites
+- Solid understanding of JavaScript fundamentals
+- Basic knowledge of:
+  - ES6+ features
+  - Time and space complexity (Big O notation)
+  - Object-oriented programming concepts
+  - Functional programming concepts
+
+## 🎓 Learning Objectives
+By the end of this course, you will be able to:
+- Implement and analyze common data structures
+- Apply algorithmic patterns to solve complex problems
+- Optimize solutions for time and space complexity
+- Explain algorithmic choices and trade-offs
+- Tackle technical interviews with confidence
+
+## 📚 Study Structure
 
 ### 📚 Weekly Study Structure (Repeat Each Week)
 
@@ -20,11 +51,14 @@ Each challenge follows this structured learning workflow:
 | **Challenge Solving** | Active recall + practical experience = retention. |
 | **Anki Flashcards** | Spaced repetition ensures you **don't forget** what you've learned. |
 
----
+## ✍️ Weekly Curriculum
 
-### ✍️ Week-by-Week Curriculum
-
----
+### Study Tips
+- 🎯 Focus on understanding patterns over memorizing solutions
+- 📝 Write clean, well-documented code
+- 🔄 Review previous weeks' concepts regularly
+- 🧪 Test edge cases thoroughly
+- ⏱️ Practice with a timer to simulate interview conditions
 
 ### **Week 1: Two Sum (Array)**
 
@@ -134,40 +168,94 @@ Each challenge follows this structured learning workflow:
 - **Challenge Solving**
 - **Anki Cards**
 
+## 📚 Additional Resources
+
+### Books
+- "Cracking the Coding Interview" by Gayle Laakmann McDowell
+- "JavaScript Data Structures and Algorithms" by Sammie Bae
+- "Introduction to Algorithms" (CLRS)
+
+### Online Platforms
+- [NeetCode.io](https://neetcode.io/)
+- [AlgoExpert](https://www.algoexpert.io/)
+- [Educative.io](https://www.educative.io/)
+
+### YouTube Channels
+- NeetCode
+- Back To Back SWE
+- Kevin Naughton Jr.
+- Nick White
+
+## 📊 Progress Tracking
+
+### Weekly Review Template
+```javascript
+const weeklyReview = {
+  week: 0,
+  conceptsLearned: [],
+  problemsSolved: {
+    easy: 0,
+    medium: 0,
+    hard: 0
+  },
+  timeSpent: {
+    theory: 0,
+    practice: 0,
+    review: 0
+  },
+  confidence: {
+    concepts: 0, // 1-5
+    implementation: 0, // 1-5
+    problemSolving: 0 // 1-5
+  },
+  areasForImprovement: []
+};
+```
+
+### Tracking Tools
+- GitHub repository for solutions
+- Notion/Trello for progress tracking
+- LeetCode submission history
+- Anki deck statistics
+
+## 🎯 Interview Preparation Tips
+
+### Technical Interview Structure
+1. **Problem Understanding** (2-3 mins)
+   - Clarify inputs/outputs
+   - Discuss edge cases
+   - Ask relevant questions
+
+2. **Solution Design** (3-5 mins)
+   - Explain approach
+   - Discuss trade-offs
+   - Get interviewer feedback
+
+3. **Implementation** (15-20 mins)
+   - Write clean code
+   - Explain while coding
+   - Handle edge cases
+
+4. **Testing & Optimization** (5 mins)
+   - Test with examples
+   - Analyze complexity
+   - Discuss improvements
+
+### Communication Tips
+- Think out loud
+- Explain your thought process
+- Ask clarifying questions
+- Discuss trade-offs
+- Be receptive to hints
+
 ---
 
-### ⚙️ JS Grammar Topics Reference
+## 📝 License
+MIT License - feel free to use and modify for your study needs.
 
-| Week | Topic |
-| --- | --- |
-| 1 | `Map`, `Set`, `forEach` vs `for...of` |
-| 2 | String methods, pointer management |
-| 3 | Classes, `this`, object references |
-| 4 | Recursion base/exit conditions |
-| 5 | 2D array access, DFS structure |
-| 6 | Recursive patterns, stack-like memory |
-| 7 | Caching patterns, tabulation |
-| 8 | Loop invariants, midpoint handling |
-| 9 | Bracket logic, array stack usage |
-| 10 | Sorting with `compareFn`, frequency counting |
-| 11 | Array destructuring, range merging |
-| 12 | Trie with classes and nested structures |
+## 🤝 Contributing
+Feel free to submit issues and enhancement requests!
 
 ---
 
-### 🔄 Weekly Review (Optional)
-
-- Solve the same problem without notes
-- Review your Anki deck
-- Read top-voted LeetCode Discuss answer and compare
-
----
-
-### 📆 Tracking
-
-Use Notion, Trello, or Google Sheets to track:
-
-- Concepts reviewed
-- Challenges solved
-- Time spent
-- Confidence (1-5 scale)
+*Happy Learning! Remember: consistency over intensity. 🚀*
