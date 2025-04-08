@@ -120,7 +120,7 @@ function isValid(user) {
 ### 📚 External Resources:
 
 - 🔗 [MDN – return](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return)
-- 📺 [JavaScript Tutorial: Functions & Return – Programming with Mosh](https://www.youtube.com/watch?v=gG3t-hfefAs)
+- 📺 [JavaScript - Functions - Return](https://www.youtube.com/watch?v=FioqUnOGlq8)
 
 ---
 
