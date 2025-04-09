@@ -56,20 +56,24 @@ const twoSumBrute: TwoSumFunction = (nums, target) => {
 };
 ```
 
-#### 2. Optimized Hash Map Approach - O(n)
+#### 2. Corrected Hash Map Approach - O(n)
 
 ```typescript
 const twoSum: TwoSumFunction = (nums, target) => {
-    const seen = new Map<number, number>();
+    const map = new Map<number, number>();
     
+    // First pass: store each number's index
+    for (let i = 0; i < nums.length; i++) {
+        map.set(nums[i], i);
+    }
+
+    // Second pass: find the complement
     for (let i = 0; i < nums.length; i++) {
         const complement = target - nums[i];
-        
-        if (seen.has(complement)) {
-            return [seen.get(complement)!, i];
+
+        if (map.has(complement) && map.get(complement) !== i) {
+            return [i, map.get(complement)!];
         }
-        
-        seen.set(nums[i], i);
     }
     
     throw new Error("No solution exists");
@@ -244,5 +248,52 @@ Implement these variations:
 4. Count pairs that sum to target
 
 Remember to use TypeScript and maintain good coding practices!
+
+---
+
+### 🖼️ Visual Aid: Two Sum Logic Flow
+
+Below is a flowchart illustrating the logic flow of the Two Sum problem using a hash map:
+
+1. **Initialize Map**: Start with an empty map.
+2. **First Pass**: Store each number's index in the map.
+3. **Second Pass**: For each number, calculate the complement and check if it exists in the map.
+4. **Return Indices**: If the complement is found and is not the same index, return the indices.
+5. **Error Handling**: If no solution is found, throw an error.
+
+```mermaid
+graph TD;
+    A[Start] --> B[Initialize Map];
+    B --> C[First Pass: Store Indices];
+    C --> D[Second Pass: Calculate Complement];
+    D --> E{Complement Exists?};
+    E -->|Yes| F[Return Indices];
+    E -->|No| G[Continue];
+    G --> D;
+    F --> H[End];
+    G -->|End of Array| I[Throw Error];
+    I --> H;
+```
+
+### 🏋️ Additional Practice Problems
+
+1. **3Sum**: Find three numbers in an array that add up to a target sum.
+2. **4Sum**: Extend the Two Sum problem to find four numbers that add up to a target sum.
+3. **Subarray Sum Equals K**: Find the number of continuous subarrays whose sum equals to k.
+4. **Two Sum II - Input Array is Sorted**: Solve the Two Sum problem with a sorted array using two pointers.
+
+### 🧹 Code Quality and Best Practices
+
+- **Descriptive Naming**: Use clear and descriptive variable names, e.g., `complement`, `indexMap`.
+- **Error Handling**: Always handle potential errors, such as no solution found.
+- **Comments and Documentation**: Add comments to explain complex logic and document functions with JSDoc.
+- **Consistent Formatting**: Follow consistent code formatting and style guidelines.
+- **Avoid Magic Numbers**: Use constants or variables instead of hardcoding numbers.
+
+### 🔗 Supplementary Resources
+
+- **Video Tutorials**: [NeetCode – Two Sum Explained](https://www.youtube.com/watch?v=KLlXCFG5TnA)
+- **Articles**: [GeeksforGeeks – Two Sum Problem](https://www.geeksforgeeks.org/two-sum-problem/)
+- **Books**: "Cracking the Coding Interview" by Gayle Laakmann McDowell
 
 ---
