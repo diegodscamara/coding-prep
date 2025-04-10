@@ -43,9 +43,11 @@ function countLetters(str) {
 ### 📚 External Resources:
 
 - 🔗 [MDN – Map Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
-- https://www.freecodecamp.org/news/javascript-map-and-set-objects-explained/
+- 🔗[How to Use the JavaScript Map and Set Objects – Explained with Code Examples
+](https://www.freecodecamp.org/news/javascript-map-and-set-objects-explained/)
 - 📖 [JavaScript.info – Map and Set](https://javascript.info/map-set)
-- https://www.youtube.com/watch?v=QtLbuFUI1I4
+- [JavaScript for Beginners #15 - Maps
+](https://www.youtube.com/watch?v=QtLbuFUI1I4)
 
 ---
 
