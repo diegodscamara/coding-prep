@@ -31,22 +31,36 @@ Return indices of two numbers in an array that sum to a given target.
 
 ```js
 function twoSum(nums, target) {
+  // Create a Map to store number-to-index mappings
+  // This allows O(1) lookups for complements
   const map = new Map();
 
-  // First pass: store all numbers with their indices
+  // First pass: Build the number-to-index map
+  // This is O(n) time and O(n) space
+  // We store each number as a key and its index as the value
   for (let i = 0; i < nums.length; i++) {
     map.set(nums[i], i);
   }
 
-  // Second pass: check for complements
+  // Second pass: Find the complement pair
+  // For each number, we look for its complement (target - current number)
+  // The complement must exist in the map and have a different index
   for (let i = 0; i < nums.length; i++) {
+    // Calculate what number we need to reach the target
     const complement = target - nums[i];
 
+    // Check if the complement exists in our map
+    // AND ensure we're not using the same index twice
+    // This handles cases like [3, 3] with target 6
     if (map.has(complement) && map.get(complement) !== i) {
+      // Return the current index and the complement's index
+      // The order doesn't matter per problem requirements
       return [i, map.get(complement)];
     }
   }
 
+  // If we've gone through all numbers without finding a pair,
+  // throw an error as specified in the problem requirements
   throw new Error("No solution exists");
 }
 ```
