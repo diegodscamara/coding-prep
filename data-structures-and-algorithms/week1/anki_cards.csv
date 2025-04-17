@@ -1,0 +1,6 @@
+"**Week 1: Two Sum** - Core Concept","Using a Hash Map (like JS `Map`) to store numbers and their indices allows for O(1) lookups to find the complement (`target - currentNumber`)."
+"**Week 1: Two Sum** - JS `Map` Usage","Initialize: `const map = new Map();` <br> Set: `map.set(key, value);` <br> Get: `map.get(key);` <br> Check: `map.has(key);`"
+"**Week 1: Two Sum** - JS `for...of` Loop","Iterates over the *values* of an iterable (like an array). Often used with `entries()` or `keys()`/`values()` for maps, or directly with arrays: `for (const num of nums) { ... }`."
+"**Week 1: Two Sum** - Algorithm Pattern","1. Create a `Map`. <br> 2. Iterate through the array (`for` loop with index `i`). <br> 3. Calculate `complement = target - nums[i]`. <br> 4. Check if `map.has(complement)`. If yes, return `[map.get(complement), i]`. <br> 5. If no, add `map.set(nums[i], i)`. <br> 6. If loop finishes, return empty array or throw error (no solution found)."
+"**Week 1: Two Sum** - Time Complexity","O(n) - We iterate through the array once."
+"**Week 1: Two Sum** - Space Complexity","O(n) - In the worst case, the `Map` stores all n elements." 
