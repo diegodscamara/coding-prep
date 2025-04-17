@@ -214,3 +214,123 @@ Bridging connects JavaScript and native code. It allows JS to call native module
 
 Build a release version (Xcode or Gradle), create store listings, sign the app, and upload via Transporter or Play Console.
 ---
+**🟢 31. What is CodePush and how do you integrate it with React Native?**
+
+**Answer:**
+
+CodePush is a service for over-the-air JS bundle updates. Integrate via the `react-native-code-push` plugin and configure release keys in your app.
+---
+**🔗 32. How do you set up deep linking in React Native apps?**
+
+**Answer:**
+
+Configure URL schemes (iOS) and intent filters (Android), and use React Navigation’s `linking` prop to map incoming URLs to screens.
+---
+**⚙️ 33. What are headless JS tasks and when are they used?**
+
+**Answer:**
+
+Headless JS allows running background tasks in Android without UI, useful for handling events like push notifications or background fetch.
+---
+**✨ 34. How do you implement animations in React Native?**
+
+**Answer:**
+
+Use the Animated API for declarative animations or libraries like Reanimated for performance-critical use cases.
+---
+**📊 35. What is the difference between the Animated API and Reanimated?**
+
+**Answer:**
+
+Animated runs animations on the JS thread; Reanimated runs animations on the UI thread via JSI for improved performance.
+---
+**♿ 36. How do you handle accessibility in React Native?**
+
+**Answer:**
+
+Use accessibility props like `accessibilityLabel`, `accessibilityRole`, and `accessibilityHint`, and test with screen readers.
+---
+**📲 37. How do you integrate push notifications with FCM or APNs?**
+
+**Answer:**
+
+Use libraries like `react-native-firebase` or `react-native-push-notification` to register devices, retrieve tokens, and handle notification events.
+---
+**🐞 38. What is Flipper and how do you use it?**
+
+**Answer:**
+
+Flipper is a mobile app debugger with plugins for logs, network, layout, and database inspection. Enable it in your debug build.
+---
+**⚙️ 39. What is the Hermes JavaScript engine and its benefits?**
+
+**Answer:**
+
+Hermes is a lightweight JS engine optimized for React Native, reducing app size and improving startup performance.
+---
+**🔄 40. How do you detect app state changes with the AppState API?**
+
+**Answer:**
+
+Use the `AppState` module to listen for 'change' events indicating active, background, or inactive states.
+---
+**🖼️ 41. How do you optimize image loading in React Native?**
+
+**Answer:**
+
+Use appropriately sized images, caching solutions like FastImage, and progressive loading placeholders.
+---
+**📐 42. What is the difference between PixelRatio and Dimensions APIs?**
+
+**Answer:**
+
+`Dimensions` provides screen metrics; `PixelRatio` offers pixel density information and conversion helpers.
+---
+**🛠️ 43. How do you write custom native UI components in React Native?**
+
+**Answer:**
+
+Implement native code (Java/Obj-C/Swift), export views via UIManager, and wrap them in JS using `requireNativeComponent`.
+---
+**🔌 44. What are JSI and TurboModules?**
+
+**Answer:**
+
+JSI (JavaScript Interface) is a C++ API for invoking JS runtime. TurboModules use JSI to access native modules directly without the React Bridge.
+---
+**🏭 45. What is the Fabric architecture in React Native?**
+
+**Answer:**
+
+Fabric is the new rendering engine that enables synchronous layout, reduces bridge overhead, and improves UI performance.
+---
+**💳 46. How do you implement in-app purchases in React Native?**
+
+**Answer:**
+
+Use libraries like `react-native-iap` or `expo-in-app-purchases` to connect to App Store and Play Store billing APIs and handle purchase flows.
+---
+**🗂️ 47. How do you structure a large-scale React Native project?**
+
+**Answer:**
+
+Organize by feature or domain, separate shared components, use a service layer for API/logic, and maintain clear folder structures.
+---
+**🧪 48. How do you perform A/B testing in React Native?**
+
+**Answer:**
+
+Use services like Firebase Remote Config or Optimizely SDK to fetch variants and render different UI/components per experiment.
+---
+**📡 49. How do you integrate device sensors like accelerometer or gyroscope?**
+
+**Answer:**
+
+Use libraries like `react-native-sensors` or Expo Sensors to subscribe to sensor data streams and process readings.
+---
+**📖 50. What are best practices for error handling in React Native apps?**
+
+**Answer:**
+
+Use global error boundaries for JS, implement native crash reporting (Sentry), handle rejected Promises, and provide user-friendly feedback.
+---
