@@ -278,3 +278,124 @@ Functions that run as soon as they are defined:
 (function() { console.log('Run') })();
 ```
 ---
+  
+**🌀 31. What is a generator function and the yield keyword?**
+
+**Answer:**
+
+Generator functions, declared with `function*`, return iterators. The `yield` keyword pauses the function and returns a value. You can resume execution with `.next()`.
+---
+**🔣 32. What is the Symbol type and how is it used?**
+
+**Answer:**
+
+`Symbol` creates unique identifiers, often used as object property keys to avoid collisions: `const id = Symbol('id');`.
+---
+**📃 33. How do you use the spread operator in function calls?**
+
+**Answer:**
+
+The spread operator `...` expands an iterable into individual arguments: `Math.max(...nums)`.
+---
+**📦 34. What is the rest parameter syntax in functions?**
+
+**Answer:**
+
+Rest parameters collect remaining arguments into an array: `function f(a, b, ...rest) { /* rest is an array */ }`.
+---
+**🌐 35. What is the difference between Map and Object for key-value storage?**
+
+**Answer:**
+
+`Map` allows any value as keys, preserves insertion order, and has a `size` property. Objects only allow string or symbol keys and inherit from prototypes.
+---
+**🗑️ 36. What are WeakMap and WeakSet?**
+
+**Answer:**
+
+`WeakMap` and `WeakSet` hold weak references to objects, preventing memory leaks. They are not iterable and do not prevent garbage collection.
+---
+**🚪 37. What is optional chaining (?.) and how does it work?**
+
+**Answer:**
+
+Optional chaining `obj?.prop` safely accesses nested properties, returning `undefined` if any reference is `null` or `undefined`.
+---
+**✨ 38. What is the nullish coalescing operator (??) and how does it work?**
+
+**Answer:**
+
+`a ?? b` returns `a` if it is not `null` or `undefined`; otherwise, it returns `b`.
+---
+**🔭 39. How do you iterate over object properties?**
+
+**Answer:**
+
+Use `Object.keys()`, `Object.values()`, `Object.entries()`, or `for...in` with `hasOwnProperty` checks.
+---
+**❄️ 40. What is the purpose of Object.freeze()?**
+
+**Answer:**
+
+`Object.freeze(obj)` prevents adding, deleting, or changing properties of `obj`.
+---
+**➕ 41. What is the purpose of Object.assign()?**
+
+**Answer:**
+
+`Object.assign(target, ...sources)` copies enumerable own properties from sources to the target object.
+---
+**🔀 42. How does prototypal inheritance differ from classical inheritance?**
+
+**Answer:**
+
+Prototypal inheritance uses object prototypes linked via `__proto__`. Classical inheritance defines classes and subclasses; ES6 classes are syntax sugar over prototypes.
+---
+**🏫 43. How do ES6 classes work compared to constructor functions?**
+
+**Answer:**
+
+ES6 `class` syntax provides a clearer syntax for constructors and methods, but under the hood, it uses prototypal inheritance similar to constructor functions.
+---
+**🕵️ 44. What is a Proxy object and what is it used for?**
+
+**Answer:**
+
+`new Proxy(target, handler)` lets you intercept and customize operations like property lookup, assignment, and function calls on the target object.
+---
+**🪞 45. What is the Reflect API?**
+
+**Answer:**
+
+`Reflect` provides methods corresponding to proxy handlers (e.g., `Reflect.get`, `Reflect.set`) for default behavior and meta-programming.
+---
+**🪙 46. What is tail call optimization?**
+
+**Answer:**
+
+Tail call optimization reuses the current stack frame for function calls in tail position, preventing stack overflows in recursive functions (ES6 spec).
+---
+**🔄 47. What are microtasks and macrotasks in the event loop?**
+
+**Answer:**
+
+Macrotasks (e.g., `setTimeout`) execute in the task queue; microtasks (e.g., Promises) execute in the microtask queue after the current task but before the next one.
+---
+**⏱️ 48. What is the difference between setTimeout(fn, 0) and Promise.resolve().then(fn)?**
+
+**Answer:**
+
+`setTimeout(fn, 0)` schedules a macrotask, while `Promise.resolve().then(fn)` schedules a microtask, which runs sooner.
+---
+**🧐 49. How can you detect the type of an object in JavaScript?**
+
+**Answer:**
+
+Use `typeof` for primitives, `Array.isArray()` for arrays, `instanceof` for class instances, or `Object.prototype.toString.call(obj)` for precise types.
+---
+**🌊 50. Explain event bubbling and event capturing in the DOM.**
+
+**Answer:**
+
+Event capturing propagates events from the document root down to the target; bubbling propagates from the target up to the root. Use `addEventListener` with the third `capture` argument to specify the phase.
+---
