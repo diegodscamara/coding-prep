@@ -211,3 +211,143 @@ A custom hook is a reusable function that uses built-in hooks to encapsulate log
 
 Use localStorage, sessionStorage, or IndexedDB directly or with libraries like redux-persist. Save state on updates and rehydrate on load.
 ---
+
+**🎯 31. What is React Fiber and why was it introduced?**
+
+**Answer:**
+
+React Fiber is the new reconciliation algorithm introduced in React 16. It enables incremental rendering by breaking rendering work into chunks and prioritizing updates for smoother user interactions.
+---
+
+**🌐 32. What is the difference between React and ReactDOM?**
+
+**Answer:**
+
+React is the core library for building component trees and creating React elements. ReactDOM provides methods like render and hydrate to mount those elements into the browser DOM.
+---
+
+**📓 33. What are React Fragments and why are they useful?**
+
+**Answer:**
+
+Fragments let you group multiple children without adding extra DOM nodes. Use the shorthand <>...</> or <React.Fragment> to avoid unnecessary wrappers.
+---
+
+**⏳ 34. What is React Suspense and how do you use it?**
+
+**Answer:**
+
+Suspense is a component for declaratively handling loading states of lazy-loaded components or data fetching. Wrap lazy components or data-fetching boundaries in <Suspense> with a fallback UI.
+---
+
+**🚨 35. What is an Error Boundary and how do you implement one?**
+
+**Answer:**
+
+An Error Boundary is a class component that implements static getDerivedStateFromError and componentDidCatch to catch rendering errors in its child tree and display a fallback UI instead of crashing the app.
+---
+
+**🚪 36. What are React Portals and when would you use them?**
+
+**Answer:**
+
+Portals allow rendering React children into a DOM node outside the parent component hierarchy. They are useful for modals, tooltips, and overlays that need to appear above other content.
+---
+
+**🖼️ 37. What are React Elements, and how do they differ from components?**
+
+**Answer:**
+
+React elements are plain objects that describe the UI tree (type, props, children). Components are functions or classes that return elements. React uses elements internally to build the virtual DOM.
+---
+
+**🔨 38. What is the purpose of React.createElement?**
+
+**Answer:**
+
+React.createElement(type, props, children) creates a React element object. JSX is syntactic sugar that compiles down to createElement calls to instruct React what to render.
+---
+
+**🖥️ 39. What is server-side rendering (SSR) in React?**
+
+**Answer:**
+
+SSR is the process of rendering React components on the server into HTML strings and sending that HTML to the client, improving initial load performance and SEO.
+---
+
+**⚡ 40. What is hydration in React?**
+
+**Answer:**
+
+Hydration attaches React event listeners to existing server-rendered HTML. ReactDOM.hydrate or hydrateRoot merges the React tree with the existing markup without replacing it.
+---
+
+**📜 41. What are PropTypes in React and how do you use them?**
+
+**Answer:**
+
+PropTypes is a runtime type-checking library for React props. Define Component.propTypes with PropTypes validators to warn in the console when incorrect prop types are passed.
+---
+
+**📝 42. What are defaultProps and how do they work?**
+
+**Answer:**
+
+defaultProps allow you to specify default values for props when none are provided. For functional components assign Component.defaultProps = {...}. For class components define a static defaultProps property.
+---
+
+**🌲 43. What is the React.Children API and how can you use it?**
+
+**Answer:**
+
+React.Children provides utilities like map, forEach, count, toArray, and only for working with this.props.children, helping you iterate, transform, or validate children elements.
+---
+
+**👥 44. What is React.cloneElement used for?**
+
+**Answer:**
+
+cloneElement returns a new element by cloning an existing one and merging in new props and optionally new children. It is useful for injecting props into children.
+---
+
+**📖 45. What is the contextType property in React?**
+
+**Answer:**
+
+contextType can be assigned to a class component (static contextType = MyContext) to read the context value via this.context, subscribing to a single context.
+---
+
+**🌀 46. What is the difference between React.lazy and dynamic import?**
+
+**Answer:**
+
+React.lazy wraps a dynamic import of a component for code splitting and must be used with Suspense. Dynamic import alone returns a promise and cannot be directly rendered without React.lazy.
+---
+
+**🪝 47. What is forwardRef and when would you use it?**
+
+**Answer:**
+
+forwardRef is a function that lets you forward a ref through a component to one of its children, enabling parent components to access the child’s DOM node or instance methods.
+---
+
+**🤝 48. What is the useImperativeHandle hook used for?**
+
+**Answer:**
+
+useImperativeHandle is used with forwardRef to customize the instance value exposed to parent refs, controlling which methods or properties are accessible.
+---
+
+**🗺️ 49. How would you implement route-based code splitting in React?**
+
+**Answer:**
+
+Use React.lazy to import route components and wrap them in <Suspense fallback> within your routing solution (e.g. React Router), so each route loads its code on demand.
+---
+
+**📈 50. What is the React Profiler API and how do you use it?**
+
+**Answer:**
+
+The Profiler component measures rendering performance. Wrap parts of your app in <Profiler id="App" onRender={(id, phase, actualDuration) => {}}> and log render timings.
+---
