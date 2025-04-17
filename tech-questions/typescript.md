@@ -274,3 +274,131 @@ Mapped types create new types from existing keys:
 type ReadOnly<T> = { readonly [K in keyof T]: T[K] };
 ```
 ---
+**🔢 31. What is the 'never' type?**
+
+**Answer:**
+
+The `never` type represents values that never occur, such as functions that always throw errors or have infinite loops.
+---
+**🔑 32. How do you use the 'keyof' operator?**
+
+**Answer:**
+
+`keyof T` produces a union of literal types corresponding to the property keys of type `T`.
+---
+**📜 33. How do you use the 'typeof' type operator?**
+
+**Answer:**
+
+In type contexts, `typeof x` extracts the type of variable `x`. It is useful for reflecting the type of existing values.
+---
+**🔄 34. What are conditional types?**
+
+**Answer:**
+
+Conditional types (`T extends U ? X : Y`) allow selecting one of two types based on a condition.
+---
+**🧩 35. How is the 'infer' keyword used in conditional types?**
+
+**Answer:**
+
+Within conditional types, `infer R` extracts a type variable from another type. E.g.,
+```ts
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any;
+```
+---
+**🗒️ 36. What are template literal types?**
+
+**Answer:**
+
+Template literal types comprise string literal types constructed via template literal syntax, e.g., `type Greeting = `Hello ${string}`;`.
+---
+**📦 37. What is the Record<K, T> utility type?**
+
+**Answer:**
+
+`Record<K, T>` constructs an object type with keys of type `K` and values of type `T`.
+---
+**🔧 38. What are the ReturnType and Parameters utility types?**
+
+**Answer:**
+
+`ReturnType<T>` extracts the return type of function type `T`; `Parameters<T>` extracts a tuple of parameter types of function `T`.
+---
+**🔢 39. How do you write function overloads in TypeScript?**
+
+**Answer:**
+
+Provide multiple function signatures above the implementation; TypeScript resolves the call based on the matching signature.
+---
+**📦 40. What are namespaces and how do they differ from modules?**
+
+**Answer:**
+
+Namespaces (formerly internal modules) group related types and values in a named scope; modules (ESM) are file-based and use `import`/`export`.
+---
+**🎨 41. What are decorators in TypeScript?**
+
+**Answer:**
+
+Decorators are an experimental feature to annotate or modify classes and class members at design time using the `@decorator` syntax.
+---
+**🔗 42. What is declaration merging?**
+
+**Answer:**
+
+Declaration merging allows multiple declarations with the same name (e.g., interfaces or namespaces) to combine their members into a single definition.
+---
+**🏫 43. What are abstract classes and how are they used?**
+
+**Answer:**
+
+Abstract classes cannot be instantiated directly and may contain abstract methods that subclasses are required to implement.
+---
+**🔄 44. What are mixins and how do you implement them?**
+
+**Answer:**
+
+Mixins are functions that return a class extending a base class, allowing composition of behaviors in a class hierarchy.
+---
+**🛠️ 45. How do you configure path aliases in tsconfig?**
+
+**Answer:**
+
+Use `compilerOptions.baseUrl` and `compilerOptions.paths` in `tsconfig.json` to map module paths to custom directory structures.
+---
+**🛡️ 46. What are key tsconfig options for strict mode?**
+
+**Answer:**
+
+`strict`, `noImplicitAny`, `strictNullChecks`, `strictPropertyInitialization`, `noImplicitThis`, and related strict flags.
+---
+**🛡️ 47. What is a type guard and how do you create one?**
+
+**Answer:**
+
+A type guard is a function returning a boolean that narrows types, declared with `x is Type` in the return type, e.g., `function isString(x: any): x is string`.
+---
+**📌 48. How do you use the 'as const' assertion?**
+
+**Answer:**
+
+Adding `as const` after a literal makes its type a readonly literal type, preserving exact values in tuples or objects.
+---
+**🌐 49. How do you extend global interfaces like Window?**
+
+**Answer:**
+
+Use declaration merging in a `.d.ts` file:
+```ts
+declare global {
+  interface Window { myProp: string; }
+}
+```
+---
+**⚠️ 50. What is the difference between @ts-ignore and @ts-expect-error?**
+
+**Answer:**
+
+`@ts-ignore` suppresses errors on the next line; `@ts-expect-error` expects an error and reports if none occurs.
+---
