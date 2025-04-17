@@ -4,6 +4,126 @@
 
 Node.js is a runtime environment that executes JavaScript code on the server side. It’s built on Chrome’s V8 engine and is ideal for building scalable, event-driven applications like APIs and real-time apps.
 ---
+**🛠️ 31. What are worker threads and when would you use them?**
+
+**Answer:**
+
+Worker Threads provide multi-threading via the `worker_threads` module. They are useful for CPU-bound tasks that should not block the event loop.
+---
+**👥 32. What is the difference between child processes and worker threads?**
+
+**Answer:**
+
+Child processes (using `child_process`) run in separate processes with their own memory; worker threads run in the same process, sharing memory and resources.
+---
+**🔧 33. How do you spawn child processes in Node.js?**
+
+**Answer:**
+
+Use `child_process.spawn`, `exec`, `execFile`, or `fork` to execute external commands or scripts in separate processes.
+---
+**📚 34. What is the Stream API and what stream types exist?**
+
+**Answer:**
+
+Node.js streams handle streaming data via four types: Readable, Writable, Duplex, and Transform streams for efficient I/O.
+---
+**🕳️ 35. What is backpressure in streams and how do you handle it?**
+
+**Answer:**
+
+Backpressure occurs when writable streams cannot process data as fast as it is produced. Handle it by checking `stream.write()` return value and listening for 'drain' events before resuming writes.
+---
+**🔄 36. How do you convert a callback-based function into a Promise?**
+
+**Answer:**
+
+Use `util.promisify(fn)` to wrap Node-style callback functions (err, result) into Promise-returning versions.
+---
+**🌐 37. How do you make HTTP(S) requests in Node.js without external libraries?**
+
+**Answer:**
+
+Use the built-in `http` or `https` modules: `http.get`/`https.get` or `http.request`/`https.request` for custom requests.
+---
+**🔐 38. How do you create an HTTPS server in Node.js?**
+
+**Answer:**
+
+Use `https.createServer({ key, cert }, requestListener)` with SSL/TLS certificates to launch a secure server.
+---
+**🐞 39. How do you debug Node.js applications?**
+
+**Answer:**
+
+Use the `--inspect` or `--inspect-brk` flags with Chrome DevTools or IDE debuggers to set breakpoints and inspect runtime.
+---
+**⚡ 40. What is the cluster module and how does it improve scalability?**
+
+**Answer:**
+
+The `cluster` module allows spawning worker processes (`cluster.fork()`) that share server ports, enabling multi-core utilization.
+---
+**🛑 41. How can you gracefully shut down a Node.js server?**
+
+**Answer:**
+
+Listen for `SIGINT`/`SIGTERM`, stop accepting new connections, call `server.close()`, and finish processing pending requests before exiting.
+---
+**🔗 42. How do you communicate between processes in Node.js?**
+
+**Answer:**
+
+Use `process.send()`/`process.on('message')` for IPC between parent and child processes, or use sockets/message queues for external communication.
+---
+**🧑‍🤝‍🧑 43. How do you integrate Redis with Node.js?**
+
+**Answer:**
+
+Use clients like `ioredis` or `node_redis` to connect to Redis for caching, pub/sub, and data storage.
+---
+**🔍 44. How does module resolution work in Node.js?**
+
+**Answer:**
+
+Node.js resolves modules by checking core modules, relative/absolute paths, and walking up `node_modules` directories per the module resolution algorithm.
+---
+**🛠️ 45. How do you manage configuration for different environments?**
+
+**Answer:**
+
+Use environment variables with `dotenv` or config libraries, load settings based on `NODE_ENV`, and validate configurations at startup.
+---
+**🚀 46. How do you update and maintain dependency versions safely?**
+
+**Answer:**
+
+Use tools like `npm-check-updates`, follow semantic versioning, inspect changelogs, lock dependencies (`package-lock.json`/`yarn.lock`), and run tests after upgrades.
+---
+**💾 47. What is memory profiling in Node.js and how do you perform it?**
+
+**Answer:**
+
+Use the `--inspect` flag with DevTools heap profiler, `clinic.js`, `heapdump`, or monitor `process.memoryUsage()` for profiling and leak detection.
+---
+**🐛 48. What are common causes of memory leaks in Node.js?**
+
+**Answer:**
+
+Unclosed timers, open handles, large caches, global variables, and unremoved event listeners can all lead to memory leaks.
+---
+**🔒 49. How can you secure a Node.js application at the process level?**
+
+**Answer:**
+
+Run as a non-root user, set resource limits, disable inspectors in production, and sanitize all inputs to prevent injection attacks.
+---
+**📦 50. How do you deploy a Node.js application to production?**
+
+**Answer:**
+
+Use process managers (PM2), containerize (Docker), deploy to PaaS or cloud services, configure CI/CD pipelines, and monitor logs and metrics.
+---
 
 **🔁 2. How does the event loop work in Node.js?**
 
