@@ -40,17 +40,56 @@
      return maxLen
  ```
 
+ ## Detailed Example Walkthrough (`s = "abcabcbb"`)
+ 
+ Initialize: `left = 0`, `maxLen = 0`, `set = {}`
+ 
+ *   **right = 0** (`s[0] = 'a'`):
+     *   `set` does not have 'a'.
+     *   Add 'a' to `set`: `set = {'a'}`.
+     *   `maxLen = max(0, 0 - 0 + 1) = 1`.
+ *   **right = 1** (`s[1] = 'b'`):
+     *   `set` does not have 'b'.
+     *   Add 'b' to `set`: `set = {'a', 'b'}`.
+     *   `maxLen = max(1, 1 - 0 + 1) = 2`.
+ *   **right = 2** (`s[2] = 'c'`):
+     *   `set` does not have 'c'.
+     *   Add 'c' to `set`: `set = {'a', 'b', 'c'}`.
+     *   `maxLen = max(2, 2 - 0 + 1) = 3`.
+ *   **right = 3** (`s[3] = 'a'`):
+     *   `set` **has** 'a'. Enter `while` loop.
+     *   Delete `s[left]` ('a') from `set`: `set = {'b', 'c'}`.
+     *   Increment `left`: `left = 1`.
+     *   `set` does not have 'a' anymore. Exit `while` loop.
+     *   Add 'a' to `set`: `set = {'b', 'c', 'a'}`.
+     *   `maxLen = max(3, 3 - 1 + 1) = 3`.
+ *   **right = 4** (`s[4] = 'b'`):
+     *   `set` **has** 'b'. Enter `while` loop.
+     *   Delete `s[left]` ('b') from `set`: `set = {'c', 'a'}`.
+     *   Increment `left`: `left = 2`.
+     *   `set` does not have 'b' anymore. Exit `while` loop.
+     *   Add 'b' to `set`: `set = {'c', 'a', 'b'}`.
+     *   `maxLen = max(3, 4 - 2 + 1) = 3`.
+ *   **right = 5** (`s[5] = 'c'`):
+     *   `set` **has** 'c'. Enter `while` loop.
+     *   Delete `s[left]` ('c') from `set`: `set = {'a', 'b'}`.
+     *   Increment `left`: `left = 3`.
+     *   `set` does not have 'c' anymore. Exit `while` loop.
+     *   Add 'c' to `set`: `set = {'a', 'b', 'c'}`.
+     *   `maxLen = max(3, 5 - 3 + 1) = 3`.
+ *   **right = 6** (`s[6] = 'b'`):
+     *   `set` **has** 'b'. Enter `while` loop.
+     *   Delete `s[left]` ('a') from `set`: `set = {'b', 'c'}`.
+     *   Increment `left`: `left = 4`.
+     *   `set` **still has** 'b'. Stay in `while` loop.
+     *   Delete `s[left]` ('b') from `set`: `set = {'c'}`.
+     *   Increment `left`: `left = 5`.
+     *   `set` does not have 'b' anymore. Exit `while` loop.
+     *   Add 'b' to `set`: `set = {'c', 'b'}`.
+     *   `maxLen = max(3, 6 - 5 + 1) = 2`. (Note: `maxLen` doesn't increase here)
+ 
+ Loop ends. Return `maxLen = 3`.
+ 
  ## Time and Space Complexity
  - Time: O(n), each character is visited at most twice (once by `right`, once by `left`).
  - Space: O(min(m, n)), where `m` is the size of the character set and `n` is the string length.
-
- ## Example Walkthrough
- ```js
- s = "abcabcbb"
- 
- right=0: set={'a'}, maxLen=1
- right=1: set={'a','b'}, maxLen=2
- right=2: set={'a','b','c'}, maxLen=3
- right=3: s[3]='a', a in set -> remove s[left]='a', left=1, set={'b','c'}; add 'a'; maxLen=3
- ...
- ```
