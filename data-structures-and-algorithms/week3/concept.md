@@ -40,7 +40,41 @@ Two primary methods are common:
         *   Set `list2.next` to the result of the recursive call.
         *   Return `list2`.
 
-## Pseudocode (Recursive Approach)
+## Pseudocode
+
+### Iterative Approach
+```js
+function mergeTwoListsIterative(list1, list2):
+    // Create a dummy node to act as the head of the new list
+    dummy = new ListNode(-1)
+    // Pointer to the last node in the merged list
+    current = dummy
+
+    // Pointers for input lists
+    p1 = list1
+    p2 = list2
+
+    // Loop while both lists have nodes
+    while p1 is not null AND p2 is not null:
+        if p1.val <= p2.val:
+            current.next = p1 // Link p1 node
+            p1 = p1.next      // Move p1 pointer
+        else:
+            current.next = p2 // Link p2 node
+            p2 = p2.next      // Move p2 pointer
+        current = current.next // Move current pointer
+
+    // Attach the remaining nodes from the non-empty list
+    if p1 is not null:
+        current.next = p1
+    else:
+        current.next = p2
+
+    // The merged list starts after the dummy node
+    return dummy.next
+```
+
+### Recursive Approach
 
 ```js
 function mergeTwoLists(list1, list2):
